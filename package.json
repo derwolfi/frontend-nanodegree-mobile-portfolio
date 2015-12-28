@@ -1,0 +1,37 @@
+{
+  "name": "'app'",
+  "version": "1.0.0",
+  "description": "'Udacity mobile portfolio'",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "del": "^2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-cache": "^0.4.1",
+    "gulp-htmlmin": "^1.3.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-inject": "^3.0.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-minify-css": "^1.2.2",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.1",
+    "imagemin-pngquant": "^4.2.0",
+    "jshint": "^2.8.0",
+    "gulp-usemin": "^0.3.16"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/derwolfi/frontend-nanodegree-mobile-portfolio.git"
+  },
+  "author": "'Wolfgang Reiter'",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/derwolfi/frontend-nanodegree-mobile-portfolio/issues"
+  },
+  "homepage": "https://github.com/derwolfi/frontend-nanodegree-mobile-portfolio#readme"
+}
