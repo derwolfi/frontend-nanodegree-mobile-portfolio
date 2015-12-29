@@ -20,7 +20,8 @@
     "gulp-usemin": "^0.3.16"
   },
   "devDependencies": {
-    "gulp-sequence": "^0.4.4"
+    "gulp-sequence": "^0.4.4",
+    "gulp-server-livereload": "^1.5.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

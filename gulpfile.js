@@ -11,12 +11,14 @@ var gulp = require('gulp'),
     del = require('del'),
     usemin = require('gulp-usemin'),
     gulpSequence = require('gulp-sequence'),
+    livereload = require('gulp-livereload'),
+    server = require('gulp-server-livereload'),
     htmlmin = require('gulp-htmlmin');
 
 // minify css Files
 // gulp.task('styles', function() {
 //   return gulp.src('css/*.css')
-//     .pipe(minifyCss({compatibility: 'ie8'}))
+//     .pipe(minifyCss())
 //     .pipe(gulp.dest('dist/css'));
 // });
 
@@ -75,7 +77,7 @@ gulp.task('minify', function() {
 // minify css Files in folder views.
 // gulp.task('styles-views', function() {
 //   return gulp.src('views/css/*.css')
-//     .pipe(minifyCss({compatibility: 'ie8'}))
+//     .pipe(minifyCss())
 //     .pipe(gulp.dest('dist/views/css'));
 // });
 
@@ -130,5 +132,14 @@ gulp.task('clean-views', function() {
 
 // Build all
 gulp.task('build', function(done) {
-	gulpSequence(['usemin', 'usemin-views'], ['minify', 'minify-views'])(done);
+	gulpSequence(['usemin', 'usemin-views'], ['images', 'images-views'], ['minify', 'minify-views'])(done);
+});
+
+gulp.task('webserver', function() {
+  gulp.src('./')
+    .pipe(server({
+      livereload: true,
+      defaultFile: 'index.html',
+      open: true
+    }));
 });
