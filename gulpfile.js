@@ -10,8 +10,8 @@ var gulp = require('gulp'),
 	pngquant = require('imagemin-pngquant'),
     del = require('del'),
     usemin = require('gulp-usemin'),
-    minifyHtml = require('gulp-htmlmin'),
-    inject = require('gulp-inject');
+    gulpSequence = require('gulp-sequence'),
+    htmlmin = require('gulp-htmlmin');
 
 // minify css Files
 // gulp.task('styles', function() {
@@ -66,6 +66,12 @@ gulp.task('usemin', ['clean'], function() {
     .pipe(gulp.dest('dist/'));
 });
 
+gulp.task('minify', function() {
+  return gulp.src('dist/*.html')
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest('dist'));
+});
+
 // minify css Files in folder views.
 // gulp.task('styles-views', function() {
 //   return gulp.src('views/css/*.css')
@@ -110,6 +116,12 @@ gulp.task('usemin-views', ['clean-views'], function() {
     .pipe(gulp.dest('dist/views/'));
 });
 
+gulp.task('minify-views', function() {
+  return gulp.src('dist/views/*.html')
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest('dist/views'));
+});
+
 
 // Clean in views Folder
 gulp.task('clean-views', function() {
@@ -117,6 +129,6 @@ gulp.task('clean-views', function() {
 });
 
 // Build all
-gulp.task('build', function() {
-	gulp.start('usemin', 'usemin-views');
-})
+gulp.task('build', function(done) {
+	gulpSequence(['usemin', 'usemin-views'], ['minify', 'minify-views'])(done);
+});
