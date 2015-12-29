@@ -1,17 +1,16 @@
 var gulp = require('gulp'),
-	minifyCss = require('gulp-minify-css'),
-	uglify = require('gulp-uglify'),
-	imagemin = require('gulp-imagemin'),
-	jshint = require('gulp-jshint'),
-	concat = require('gulp-concat'),
-	rename = require('gulp-rename'),
-	notify = require('gulp-notify'),
-	cache = require('gulp-cache'),
-	pngquant = require('imagemin-pngquant'),
+  minifyCss = require('gulp-minify-css'),
+  uglify = require('gulp-uglify'),
+  imagemin = require('gulp-imagemin'),
+  jshint = require('gulp-jshint'),
+  concat = require('gulp-concat'),
+  rename = require('gulp-rename'),
+  notify = require('gulp-notify'),
+  cache = require('gulp-cache'),
+  pngquant = require('imagemin-pngquant'),
     del = require('del'),
     usemin = require('gulp-usemin'),
     gulpSequence = require('gulp-sequence'),
-    livereload = require('gulp-livereload'),
     server = require('gulp-server-livereload'),
     htmlmin = require('gulp-htmlmin');
 
@@ -39,10 +38,10 @@ var gulp = require('gulp'),
 gulp.task('images', function() {
   return gulp.src('img/**/*')
     .pipe(cache(imagemin({
-    	optimizationLevel: 5,
-    	progressive: true,
-    	interlaced: true,
-    	svgoPlugins: [{removeviewsBox: false}],
+      optimizationLevel: 5,
+      progressive: true,
+      interlaced: true,
+      svgoPlugins: [{removeviewsBox: false}],
         use: [pngquant()]
     })))
     .pipe(gulp.dest('dist/img'))
@@ -60,9 +59,10 @@ gulp.task('usemin', ['clean'], function() {
   return gulp.src('./*.html')
     .pipe(usemin({
       css: [ minifyCss ],
+      inlinecss: [ minifyCss, 'concat' ],
       js: [ uglify ],
       jsAttributes: {
-      	async: true
+        async: true
       }
     }))
     .pipe(gulp.dest('dist/'));
@@ -98,10 +98,10 @@ gulp.task('minify', function() {
 gulp.task('images-views', function() {
   return gulp.src('views/images/**/*')
     .pipe(cache(imagemin({
-    	optimizationLevel: 5,
-    	progressive: true,
-    	interlaced: true,
-    	svgoPlugins: [{removeviewsBox: false}],
+      optimizationLevel: 5,
+      progressive: true,
+      interlaced: true,
+      svgoPlugins: [{removeviewsBox: false}],
         use: [pngquant()]
     })))
     .pipe(gulp.dest('dist/views/images'))
@@ -113,7 +113,10 @@ gulp.task('usemin-views', ['clean-views'], function() {
   return gulp.src('./views/*.html')
     .pipe(usemin({
       css: [ minifyCss ],
-      js: [ uglify ]
+      js: [ uglify ],
+      jsAttributes: {
+        async: true
+      }
     }))
     .pipe(gulp.dest('dist/views/'));
 });
@@ -132,7 +135,7 @@ gulp.task('clean-views', function() {
 
 // Build all
 gulp.task('build', function(done) {
-	gulpSequence(['usemin', 'usemin-views'], ['images', 'images-views'], ['minify', 'minify-views'])(done);
+  gulpSequence(['usemin', 'usemin-views'], ['images', 'images-views'], ['minify', 'minify-views'])(done);
 });
 
 gulp.task('webserver', function() {

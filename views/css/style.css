@@ -29,6 +29,8 @@ form {
   font-weight: 800;
 }
 
+.pizzeria { width: 100%; }
+
 .mover {
   position: fixed;
   width: 256px;
@@ -38,6 +40,7 @@ form {
 .randomPizzaContainer {
   float: left;
   display: flex;
+  height: 325px;
 }
 
 .randomPizzaContainer:after {
@@ -49,3 +52,4 @@ form {
  .container {
   background-color: rgba(240, 60, 60, 0.8);
 }
+.img-responsive { will-change: transform; }
