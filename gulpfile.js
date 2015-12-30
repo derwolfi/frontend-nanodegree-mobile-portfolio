@@ -19,13 +19,13 @@ var gulp = require('gulp'),
 // optimize images
 gulp.task('images', function() {
   return gulp.src('img/**/*')
-    .pipe(cache(imagemin({
+    .pipe(imagemin({
       optimizationLevel: 5,
       progressive: true,
       interlaced: true,
       svgoPlugins: [{removeviewsBox: false}],
         use: [pngquant()]
-    })))
+    }))
     .pipe(gulp.dest('dist/img'))
     .pipe(notify({ message: 'Images task complete' }));
 });
@@ -61,13 +61,14 @@ gulp.task('minify-html', function() {
 // optimize images in views Folder
 gulp.task('images-views', function() {
   return gulp.src('views/images/**/*')
-    .pipe(cache(imagemin({
+    .pipe(imagemin({
       optimizationLevel: 5,
       progressive: true,
+      cache: false,
       interlaced: true,
       svgoPlugins: [{removeviewsBox: false}],
         use: [pngquant()]
-    })))
+    }))
     .pipe(gulp.dest('dist/views/images'))
     .pipe(notify({ message: 'Images task complete' }));
 });
