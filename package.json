@@ -20,6 +20,7 @@
     "gulp-usemin": "^0.3.16"
   },
   "devDependencies": {
+    "gulp-foreach": "^0.1.0",
     "gulp-sequence": "^0.4.4",
     "gulp-server-livereload": "^1.5.4"
   },

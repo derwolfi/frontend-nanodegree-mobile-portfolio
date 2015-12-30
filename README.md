@@ -3,6 +3,7 @@
 ## Setup for the Project
 
 use the following steps to init the project.
+if not npm is installed, install it.
 
   ```
   git clone https://github.com/derwolfi/frontend-nanodegree-mobile-portfolio
@@ -16,21 +17,9 @@ use the following steps to init the project.
   ```
 
 
-Test the PageSpeed Insights under: https://developers.google.com/speed/pagespeed/insights/
-
-1. Download and install [ngrok](https://ngrok.com/) to make your local server accessible remotely.
-
-  ``` bash
-  $> cd ./your-project-folder/dist
-  $> ngrok http 8080
-  ```
-or copy the folder dist on a Webserver in order to test the PageSpeed.
-
-
-
 ## Gulp Tasks
 
-1. run a local webserver to inspect the site on your phone
+### run a local webserver to inspect the site on your phone
 
   ```bash
   gulp webserver = http://localhost:8000/
@@ -38,33 +27,37 @@ or copy the folder dist on a Webserver in order to test the PageSpeed.
 
 After changing a css or js File the page will reloaded.
 
-```
-$ livereload help
-
-  Usage: livereload [options]
-
-  Options:
-
-    -h, --help        output usage information
-    -V, --version     output the version number
-    -n, --no-browser  do not open the localhost server in a browser
-    -l, --log [type]  log level (default: info)
-    -p, --port <n>    the port to run on
-```
 more Info under: https://github.com/hiddentao/gulp-server-livereload
 
 
-1. build the site  : gulp build
+### build the site
 
-It will minify and concat css, js and minify html.
-webapp is the destination Folder
+  ```bash
+  gulp build
+  ```
+
+It will minify and concat css, js Files and minify html - Files.
+dist is the destination Folder
+
+
+## Test the PageSpeed Insights under: https://developers.google.com/speed/pagespeed/insights/
+
+Download and install [ngrok](https://ngrok.com/) to make your local server accessible remotely.
+
+  ``` bash
+  $> cd ./frontend-nanodegree-mobile-portfolio/dist
+  $> ngrok http 8080
+  ```
+or copy the folder dist on a Webserver in order to test the PageSpeed.
 
 
 
 <a name="htaccess"></a>
-## Apache Config or .htaccess
+## Apache Config over .htaccess
 
-use the following code in a .htaccess file or change the Apache config
+use the following code in a .htaccess to change the Apache config.
+Be shure that in your httpd.conf AllowOverride All.
+copy the .htacces File in the dist Folder from the project.
 
 ```
 <IfModule mod_mime.c>
