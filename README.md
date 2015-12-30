@@ -40,7 +40,9 @@ It will minify and concat css, js Files and minify html - Files.
 dist is the destination Folder
 
 
-## Test the PageSpeed Insights under: https://developers.google.com/speed/pagespeed/insights/
+## Test the PageSpeed Insights.
+
+under: https://developers.google.com/speed/pagespeed/insights/
 
 Download and install [ngrok](https://ngrok.com/) to make your local server accessible remotely.
 
