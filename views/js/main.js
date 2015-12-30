@@ -491,6 +491,7 @@ function updatePositions() {
   var cachedScrollTop = document.body.scrollTop;
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((cachedScrollTop / 1250) + (i % 5));
+    // First run positioned over left position and than moves with transform.
     if (frame <= 200) {
       items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
     } else {
