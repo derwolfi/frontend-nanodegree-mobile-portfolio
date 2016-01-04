@@ -469,6 +469,8 @@ console.log("Time to generate pizzas on load: " + timeToGenerate[0].duration + "
 // Iterator for number of times the pizzas in the background have scrolled.
 // Used by updatePositions() to decide when to log the average time per frame
 var frame = 0;
+
+// Used by updatePositions().
 var phase;
 
 // all Pizzas that moving on the Background. Set by load and used by updatePosition()
