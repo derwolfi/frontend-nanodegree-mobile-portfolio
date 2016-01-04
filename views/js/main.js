@@ -506,7 +506,6 @@ function updatePositions() {
     phase = Math.sin(cachedScrollTop + (i % 5)) * 100 + 'px';
     // transform reduced the layout and paint
     movingPizzas[i].style.transform = 'translateX(' + phase + ')';
-    //movingPizzas[i].style["-webkit-transform"] = 'translateX(' + phase +')';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -520,7 +519,7 @@ function updatePositions() {
   window.requestAnimationFrame(updatePositions);
 }
 
-//window.addEventListener('scroll', updatePositions);
+// window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas script is loads.
 window.addEventListener("load", function(event) {
